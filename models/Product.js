@@ -2,27 +2,30 @@ import mongoose from 'mongoose'
 import shortid from 'shortid'
 const {String, Number} = mongoose.Schema.Types
 // passing object
-const ProductSchema = new.mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: True
+        required: true
     },
     price: {
         type: Number,
-        required: True
+        required: true
     },
     sku: {
         type: String,
-        unique: True,
+        unique: true,
         default: shortid.generate()
     },
     description: {
         type: String,
-        required: True
+        required: true
     },
     mediaUrl: {
         type: String,
-        required: True
+        required: true
     }
-
 })
+
+export default mongoose.models.Product || 
+    mongoose.model("Product", ProductSchema);
+    // check if model exists, if it doesn't, create it

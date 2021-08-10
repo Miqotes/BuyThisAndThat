@@ -26,7 +26,7 @@ Home.getInitialProps = async () => {
   // return response data as an object
   // we're adding data to props and props is an object
   // note: this object will be merged with existing props
-  const url = 'http://localhost:3000/api/product'
+  const url = 'http://localhost:3000/api/products'
     const response = await axios.get(url)
     // returning new object!
     return { products: response.data }
